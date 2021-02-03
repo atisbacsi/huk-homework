@@ -148,4 +148,17 @@ describe('TodoRepositoryImplService', () => {
     });
 
   });
+
+  it('should give a uique identifier', () => {
+
+  });
+
+  it('should serve the existing list right after subscription', () => {
+
+  });
+
+  it('should serve the stored list right after creation', () => {
+
+  });
+
 });
