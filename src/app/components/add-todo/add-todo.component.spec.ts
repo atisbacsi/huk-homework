@@ -43,10 +43,17 @@ describe('AddTodoComponent', () => {
     const inputBoxDE: DebugElement = fixture.debugElement.query(
       By.css('.title')
     );
-
+    
     const inputBox: HTMLInputElement = inputBoxDE.nativeElement;
     inputBox.value = 'a new todo';
     inputBox.dispatchEvent(new Event('input'));
+    
+    const dateInputBoxDE: DebugElement = fixture.debugElement.query(
+      By.css('.duedate')
+    );
+    const dateInputBox: HTMLInputElement = dateInputBoxDE.nativeElement;
+    dateInputBox.value = '01.01.2020';
+    dateInputBox.dispatchEvent(new Event('input'));
 
     const buttonDE: DebugElement = fixture.debugElement.query(
       By.css('.enteritem')
@@ -61,6 +68,7 @@ describe('AddTodoComponent', () => {
     expect(repository.add).toHaveBeenCalledWith({
       name: 'a new todo',
       status: TodoStatus.Open,
+      dueDate: '01.01.2020',
     });
   });
 

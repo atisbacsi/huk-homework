@@ -2,8 +2,15 @@
   <input
     type="text"
     class="title"
-    placeholder="Enter a TODO item."
+    placeholder="Enter a TODO item"
     [formControl]="todoElem"
+    (keyup.enter)="addItem()"
+  />
+  <input
+    type="date"
+    class="duedate"
+    placeholder="2021.01.01"
+    [formControl]="duedate"
     (keyup.enter)="addItem()"
   />
   <input

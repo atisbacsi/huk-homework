@@ -2,9 +2,10 @@
     display: flex;
     max-width: 30em;
 }
-.title {
+.title, .duedate {
     flex: 1;
     height: 2em;
     margin: 0.2em;
     margin-right: 1em;
+    min-width: 10em;
 }

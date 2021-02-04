@@ -11,6 +11,7 @@ import { TodoRepositoryDummyService } from '../../service/todo-repository-dummy.
 })
 export class AddTodoComponent implements OnInit {
   todoElem = new FormControl('');
+  duedate = new FormControl('');
 
   constructor(private repository: TodoRepositoryDummyService) {}
 
@@ -18,10 +19,12 @@ export class AddTodoComponent implements OnInit {
 
   addItem(): void {
     const title: string = this.todoElem.value;
-    if (title && title.length > 0) {
-      const newItem: TodoElem = { name: title, status: TodoStatus.Open };
+    const duedate: string = this.duedate.value;
+    if (title && title.length > 0 && duedate && duedate.length > 0 && Date.parse(duedate) !== NaN) {
+      const newItem: TodoElem = { name: title, status: TodoStatus.Open, dueDate: duedate };
       this.repository.add(newItem);
       this.todoElem.reset();
+      //this.duedate.reset();
     }
   }
 }

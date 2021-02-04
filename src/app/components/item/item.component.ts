@@ -33,4 +33,8 @@ export class ItemComponent implements OnInit {
   get isReady(): boolean {
     return this.todo.status === TodoStatus.Ready;
   }
+
+  get dueDate(): string {
+    return 'Due Date: ' + this.todo.dueDate;
+  }
 }
