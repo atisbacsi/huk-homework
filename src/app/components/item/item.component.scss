@@ -1,0 +1,37 @@
+.item {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1.5em;
+  color: white;
+  background-color: green;
+  display: flex;
+  margin: 0.2em;
+}
+
+.item.ready {
+  background-color: red;
+}
+
+span {
+  padding: 1em;
+  line-height: 1em;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  flex: 1;
+}
+
+input {
+  flex: 0;
+  font-size: 2em;
+  border-width: 0;
+  border-radius: 0.5em;
+  width: 1em;
+  height: 1em;
+  align-self: center;
+  text-align: center;
+  line-height: 1em;
+  background-color: rgb(255, 239, 21);
+  margin-right: 0.3em;
+}
+

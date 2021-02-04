@@ -1,4 +1,4 @@
-<div>
-  <span (click)="ready()" [class.ready]="isReady">{{ todo.name }}</span>
-  <input type="button" value="Del" (click)="remove()" />
+<div class="item" [class.ready]="isReady">
+  <span (click)="ready()">{{ todo.name }}</span>
+  <input type="button" value="&times;" (click)="remove()" />
 </div>
