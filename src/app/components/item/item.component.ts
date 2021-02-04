@@ -11,6 +11,8 @@ export class ItemComponent implements OnInit {
   @Input()
   todo: TodoElem = { name: 'X', status: TodoStatus.Open, id: 0 };
 
+  deleted: boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -19,7 +21,8 @@ export class ItemComponent implements OnInit {
   @Output() readyItem = new EventEmitter<TodoElem>();
 
   remove(): void {
-    this.removedItem.emit(this.todo);
+    this.deleted = true;
+    setTimeout(() => this.removedItem.emit(this.todo), 300);
   }
 
   ready(): void {

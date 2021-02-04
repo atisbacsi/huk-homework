@@ -1,6 +1,6 @@
-@media (min-width: 600px) {
+@media (min-width: 680px) {
   .list {
-    max-width: 1200px;
+    max-width: 1160px;
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
   }
@@ -9,7 +9,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .list {
     max-width: 1600px;
     grid-template-columns: repeat(6, minmax(200px, 1fr));

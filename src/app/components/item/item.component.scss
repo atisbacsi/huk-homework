@@ -2,14 +2,22 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 1.5em;
+  border-color: rgb(73, 73, 73);
   color: white;
   background-color: green;
   display: flex;
   margin: 0.2em;
+  box-shadow: 0.1em 0.1em 0.05em 0.05em rgb(180, 179, 179);  
 }
 
 .item.ready {
   background-color: red;
+  transition: 200ms;
+}
+
+.item.deleted {
+  opacity: 0;
+  transition: 300ms;
 }
 
 span {
@@ -20,6 +28,7 @@ span {
   overflow: hidden;
   flex: 1;
 }
+
 
 input {
   flex: 0;
@@ -33,5 +42,6 @@ input {
   line-height: 1em;
   background-color: rgb(255, 239, 21);
   margin-right: 0.3em;
+  box-shadow: 0 0 0.05em 0.05em rgba(0, 0, 0, 0.3);    
 }
 
