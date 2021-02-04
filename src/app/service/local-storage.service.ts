@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
   localStorage: Storage;
@@ -39,6 +39,6 @@ export class LocalStorageService {
   }
 
   get isLocalStorageSupported(): boolean {
-    return !!this.localStorage
+    return !!this.localStorage;
   }
 }

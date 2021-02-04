@@ -45,9 +45,10 @@ describe('TodoRepositoryImplService', () => {
   });
 
   it('should trigger list change', (done) => {
-
-    service.getAll().subscribe(list => {
-      const expectedList: TodoList = {todos: [{ name: 'hausaufgabe', status: TodoStatus.Open, id: 0 }]};
+    service.getAll().subscribe((list) => {
+      const expectedList: TodoList = {
+        todos: [{ name: 'hausaufgabe', status: TodoStatus.Open, id: 0 }],
+      };
       if (list.todos.length > 0) {
         expect(list).toEqual(expectedList);
         done();
@@ -57,13 +58,13 @@ describe('TodoRepositoryImplService', () => {
     const elem: TodoElem = { name: 'hausaufgabe', status: TodoStatus.Open };
     service.add(elem);
   });
-  
+
   it('should remove element in stored list', () => {
     const elemToRemove: TodoElem = {
       name: 'hausaufgabe',
       status: TodoStatus.Open,
     };
-    
+
     service.add({ name: 'toDoItem1', status: TodoStatus.Ready });
     service.add({ name: 'toDoItem2', status: TodoStatus.Open });
     service.add({ name: 'toDoItem3', status: TodoStatus.Ready });
@@ -79,25 +80,24 @@ describe('TodoRepositoryImplService', () => {
         {
           name: 'hausaufgabe',
           status: TodoStatus.Open,
-          id: 3
+          id: 3,
         },
         { name: 'toDoItem4', status: TodoStatus.Open, id: 4 },
-        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },        
+        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },
       ],
     });
-    
+
     service.remove(elemToRemove);
-    
+
     expect(localStorage.set).toHaveBeenCalledWith(SESSIONSTORAGE_KEY, {
       todos: [
         { name: 'toDoItem1', status: TodoStatus.Ready, id: 0 },
         { name: 'toDoItem2', status: TodoStatus.Open, id: 1 },
         { name: 'toDoItem3', status: TodoStatus.Ready, id: 2 },
         { name: 'toDoItem4', status: TodoStatus.Open, id: 4 },
-        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },        
+        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },
       ],
     });
-
   });
 
   it('should update element in stored list', () => {
@@ -106,7 +106,6 @@ describe('TodoRepositoryImplService', () => {
       status: TodoStatus.Open,
     };
 
-    
     service.add({ name: 'toDoItem1', status: TodoStatus.Ready });
     service.add({ name: 'toDoItem2', status: TodoStatus.Open });
     service.add({ name: 'toDoItem3', status: TodoStatus.Ready });
@@ -122,18 +121,18 @@ describe('TodoRepositoryImplService', () => {
         {
           name: 'hausaufgabe',
           status: TodoStatus.Open,
-          id: 3
+          id: 3,
         },
         { name: 'toDoItem4', status: TodoStatus.Open, id: 4 },
-        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },        
+        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },
       ],
     });
-    
+
     elemToUpdate.status = TodoStatus.Ready;
     elemToUpdate.name = 'new Name';
 
     service.update(elemToUpdate);
-    
+
     expect(localStorage.set).toHaveBeenCalledWith(SESSIONSTORAGE_KEY, {
       todos: [
         { name: 'toDoItem1', status: TodoStatus.Ready, id: 0 },
@@ -142,25 +141,17 @@ describe('TodoRepositoryImplService', () => {
         {
           name: 'new Name',
           status: TodoStatus.Ready,
-          id: 3
-        },        
+          id: 3,
+        },
         { name: 'toDoItem4', status: TodoStatus.Open, id: 4 },
-        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },        
+        { name: 'toDoItem5', status: TodoStatus.Ready, id: 5 },
       ],
     });
-
   });
 
-  it('should give a uique identifier', () => {
+  it('should give a uique identifier', () => {});
 
-  });
+  it('should serve the existing list right after subscription', () => {});
 
-  it('should serve the existing list right after subscription', () => {
-
-  });
-
-  it('should serve the stored list right after creation', () => {
-
-  });
-
+  it('should serve the stored list right after creation', () => {});
 });

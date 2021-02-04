@@ -5,22 +5,24 @@ import { TodoRepositoryDummyService } from 'src/app/service/todo-repository-dumm
 @Component({
   selector: 'todo-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-
   list: TodoElem[];
 
-  constructor(private repository: TodoRepositoryDummyService) { }
+  constructor(private repository: TodoRepositoryDummyService) {}
 
   ngOnInit(): void {
-    this.repository.getAll().subscribe(todos => {this.list = todos.todos; console.log(todos);});
+    this.repository.getAll().subscribe((todos) => {
+      this.list = todos.todos;
+      console.log(todos);
+    });
   }
 
   removeItem(todoItem: TodoElem): void {
     this.repository.remove(todoItem);
   }
-  
+
   setItemReady(todoItem: TodoElem): void {
     this.repository.update(todoItem);
   }

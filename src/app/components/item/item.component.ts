@@ -5,17 +5,15 @@ import { TodoStatus } from 'src/app/model/TodoStatus';
 @Component({
   selector: 'todo-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  styleUrls: ['./item.component.scss'],
 })
 export class ItemComponent implements OnInit {
+  @Input()
+  todo: TodoElem = { name: 'X', status: TodoStatus.Open, id: 0 };
 
-  @Input() 
-  todo: TodoElem = {name: 'X', status: TodoStatus.Open, id: 0};
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @Output() removedItem = new EventEmitter<TodoElem>();
   @Output() readyItem = new EventEmitter<TodoElem>();

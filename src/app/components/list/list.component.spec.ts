@@ -14,20 +14,18 @@ describe('ListComponent', () => {
       'getAll',
     ]);
     await TestBed.configureTestingModule({
-      declarations: [ ListComponent ],
+      declarations: [ListComponent],
       providers: [
         { provide: TodoRepositoryDummyService, useValue: spyRepository },
-      ],      
-    })
-    .compileComponents();
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    
     repository = TestBed.inject(
       TodoRepositoryDummyService
-      ) as jasmine.SpyObj<TodoRepositoryDummyService>;
-      
+    ) as jasmine.SpyObj<TodoRepositoryDummyService>;
+
     repository.getAll.and.returnValue(of());
 
     fixture = TestBed.createComponent(ListComponent);
