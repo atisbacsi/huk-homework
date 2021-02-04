@@ -1,9 +1,8 @@
 <div class="list">
-  <div *ngFor="let item of list">
-    <todo-item
-      [todo]="item"
-      (removedItem)="removeItem($event)"
-      (readyItem)="setItemReady($event)"
-    ></todo-item>
-  </div>
+  <todo-item *ngFor="let item of list"
+    class="list-item"
+    [todo]="item"
+    (removedItem)="removeItem($event)"
+    (readyItem)="setItemReady($event)"
+  ></todo-item>
 </div>
