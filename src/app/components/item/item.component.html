@@ -1,1 +1,4 @@
-<p>item works!</p>
+<div>
+    <span (click)="ready()" [class.ready]="isReady">{{todo.name}}</span>
+    <input type="button" value="Del" (click)="remove()">
+</div>

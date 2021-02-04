@@ -17,4 +17,11 @@ export class ListComponent implements OnInit {
     this.repository.getAll().subscribe(todos => {this.list = todos.todos; console.log(todos);});
   }
 
+  removeItem(todoItem: TodoElem): void {
+    this.repository.remove(todoItem);
+  }
+  
+  setItemReady(todoItem: TodoElem): void {
+    this.repository.update(todoItem);
+  }
 }

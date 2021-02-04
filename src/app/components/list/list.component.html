@@ -1,4 +1,3 @@
 <div class="list">
-    <div *ngFor="let i of list">{{i.name}}</div>
+  <div *ngFor="let item of list"><todo-item [todo]="item" (removedItem)="removeItem($event)" (readyItem)="setItemReady($event)"></todo-item></div>
 </div>
-

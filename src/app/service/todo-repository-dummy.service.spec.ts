@@ -45,10 +45,13 @@ describe('TodoRepositoryImplService', () => {
   });
 
   it('should trigger list change', (done) => {
+
     service.getAll().subscribe(list => {
       const expectedList: TodoList = {todos: [{ name: 'hausaufgabe', status: TodoStatus.Open, id: 0 }]};
-      expect(list).toEqual(expectedList);
-      done();
+      if (list.todos.length > 0) {
+        expect(list).toEqual(expectedList);
+        done();
+      }
     });
 
     const elem: TodoElem = { name: 'hausaufgabe', status: TodoStatus.Open };
@@ -60,7 +63,6 @@ describe('TodoRepositoryImplService', () => {
       name: 'hausaufgabe',
       status: TodoStatus.Open,
     };
-
     
     service.add({ name: 'toDoItem1', status: TodoStatus.Ready });
     service.add({ name: 'toDoItem2', status: TodoStatus.Open });
