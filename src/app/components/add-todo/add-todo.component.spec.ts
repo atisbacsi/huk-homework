@@ -52,7 +52,7 @@ describe('AddTodoComponent', () => {
       By.css('.duedate')
     );
     const dateInputBox: HTMLInputElement = dateInputBoxDE.nativeElement;
-    dateInputBox.value = '01.01.2020';
+    dateInputBox.value = '2020-01-01';
     dateInputBox.dispatchEvent(new Event('input'));
 
     const buttonDE: DebugElement = fixture.debugElement.query(
@@ -68,7 +68,7 @@ describe('AddTodoComponent', () => {
     expect(repository.add).toHaveBeenCalledWith({
       name: 'a new todo',
       status: TodoStatus.Open,
-      dueDate: '01.01.2020',
+      dueDate: '2020-01-01',
     });
   });
 

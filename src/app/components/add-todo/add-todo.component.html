@@ -1,18 +1,20 @@
 <div class="inputpanel">
-  <input
-    type="text"
-    class="title"
-    placeholder="Enter a TODO item"
-    [formControl]="todoElem"
-    (keyup.enter)="addItem()"
-  />
-  <input
-    type="date"
-    class="duedate"
-    placeholder="2021.01.01"
-    [formControl]="duedate"
-    (keyup.enter)="addItem()"
-  />
+  <div class="inputs">
+    <input
+      type="text"
+      class="title"
+      placeholder="Enter a TODO item"
+      [formControl]="todoElem"
+      (keyup.enter)="addItem()"
+    />
+    <input
+      type="date"
+      class="duedate"
+      placeholder="2021.01.01"
+      [formControl]="duedate"
+      (keyup.enter)="addItem()"
+    />
+  </div>
   <input
     type="button"
     class="enteritem"
